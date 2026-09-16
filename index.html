@@ -1,1 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Patient Appointment Scheduling</title>
+</head>
+  
+<body>
 
+    <h2>Patient Appointment Scheduling System</h2>
+
+    <label>Patient Name:</label>
+    <input type="text" id="name">
+
+    <br><br>
+
+    <label>Symptoms:</label>
+    <input type="text" id="symptoms">
+
+    <br><br>
+
+    <button id="recommend">AI Recommendation</button>
+
+    <p id="result"></p>
+
+    <hr>
+
+    <label>Appointment Date:</label>
+    <input type="date" id="date">
+
+    <br><br>
+
+    <button id="book">Book Appointment</button>
+
+    <p id="appointment"></p>
+
+
+    <script>
+
+        // AI Recommendation
+        document.getElementById("recommend").addEventListener("click", function() {
+
+            let symptoms = document.getElementById("symptoms").value.toLowerCase();
+
+            let result = document.getElementById("result");
+
+            if (symptoms.includes("fever") || symptoms.includes("cold")) {
+
+                result.innerHTML =
+                    "AI Suggestion: Consult a General Physician.";
+
+            }
+
+            else if (symptoms.includes("skin") || symptoms.includes("rash")) {
+
+                result.innerHTML =
+                    "AI Suggestion: Consult a Dermatologist.";
+
+            }
+
+            else if (symptoms.includes("tooth") || symptoms.includes("teeth")) {
+
+                result.innerHTML =
+                    "AI Suggestion: Consult a Dentist.";
+
+            }
+
+            else {
+
+                result.innerHTML =
+                    "AI Suggestion: Consult a General Physician.";
+
+            }
+
+        });
+
+
+        // Book Appointment
+        document.getElementById("book").addEventListener("click", function() {
+
+            let name = document.getElementById("name").value;
+
+            let date = document.getElementById("date").value;
+
+            let appointment =
+                document.getElementById("appointment");
+
+
+            if (name == "" || date == "") {
+
+                appointment.innerHTML =
+                    "Please enter all details.";
+
+            }
+
+            else {
+
+                appointment.innerHTML =
+                    "Appointment booked successfully!<br>" +
+                    "Patient Name: " + name + "<br>" +
+                    "Appointment Date: " + date;
+
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
